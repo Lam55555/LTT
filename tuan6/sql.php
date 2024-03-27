@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../tuan6/hp.css">
 </head>
 <body>
-    <?php
+<?php
     $conn = mysqli_connect("localhost","root","");
     mysqli_select_db($conn,"qlysv");
     mysqli_set_charset($conn,"utf8");
@@ -37,14 +37,21 @@
             <td height='23' align='center'>".$stt."</td>
             <td align='center'>".$row[0]."</td>";
             echo"<td align='center'>".$row[1]."</td>"; 
-            
+            if($row[2]==1){
+                echo "<td align='center'>Nam</td>";
+                
+            }
+            else {echo "<td align='center'>Nữ</td>";}
             $stt++;
         }
-
+    }
         echo"</table>
+        <table border='0' width='500'>
+        <tr><td align='right'>Tổng số sinh viên:".mysqli_num_rows($kq)."</td></tr>
+        </table>
         ";
 
-    }
+ 
     ?>
 </body>
 </html>
